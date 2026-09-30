@@ -1,0 +1,83 @@
+{
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.inputValidation": true,
+  "git.inputValidationLength": 100,
+
+  "commit-message-editor.dynamicTemplate": [
+    "{type}{scope}: {description}",
+    "",
+    "{body}",
+    "",
+    "{breaking_change}{footer}"
+  ],
+
+  "commit-message-editor.staticTemplate": [
+    "{type}{scope}: {description}",
+    "",
+    "{body}",
+    "",
+    "{breaking_change}{footer}"
+  ],
+
+  "commit-message-editor.tokens": [
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "options": [
+        { "label": "---", "value": "" },
+        { "label": "feat ✨", "value": "feat ✨", "description": "Novo recurso" },
+        { "label": "fix 🐛", "value": "fix 🐛", "description": "Correção de bug" },
+        { "label": "docs 📚", "value": "docs 📚", "description": "Documentação" },
+        { "label": "test 🧪", "value": "test 🧪", "description": "Testes" },
+        { "label": "build ➕", "value": "build ➕", "description": "Build" },
+        { "label": "perf ⚡", "value": "perf ⚡", "description": "Performance" },
+        { "label": "style 🎨", "value": "style 🎨", "description": "Estilo de código" },
+        { "label": "refactor ♻️", "value": "refactor ♻️", "description": "Refatoração" },
+        { "label": "chore 🔧", "value": "chore 🔧", "description": "Tarefas" },
+        { "label": "ci 🧱", "value": "ci 🧱", "description": "Integração contínua" },
+        { "label": "raw 🗃️", "value": "raw 🗃️", "description": "Dados RAW" },
+        { "label": "cleanup 🧹", "value": "cleanup 🧹", "description": "Limpeza de código" },
+        { "label": "remove 🗑️", "value": "remove 🗑️", "description": "Remoção de arquivos" }
+      ],
+      "description": "Type of changes"
+    },
+    {
+      "label": "Scope",
+      "name": "scope",
+      "type": "text",
+      "multiline": false,
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "Short description",
+      "name": "description",
+      "type": "text",
+      "multiline": false
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "type": "text",
+      "multiline": true,
+      "lines": 5,
+      "maxLines": 10
+    },
+    {
+      "label": "Breaking change",
+      "name": "breaking_change",
+      "type": "boolean",
+      "value": "BREAKING CHANGE: ",
+      "default": false
+    },
+    {
+      "label": "Footer",
+      "name": "footer",
+      "type": "text",
+      "multiline": true
+    }
+  ]
+}
