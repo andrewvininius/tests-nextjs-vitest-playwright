@@ -19,11 +19,10 @@ import '@testing-library/jest-dom/vitest';
 // Isso evita warnings relacionados ao act(...) em atualizações do React
 // e garante que matchers como `.toBeInTheDocument()` funcionem corretamente
 import * as matchers from '@testing-library/jest-dom/matchers';
-import { clearDrizzleTodoTable } from '@/core/todo/__tests__/utils/clear-drizzle-todo-table';
 
 // Estende o expect global com os matchers do jest-dom
 // Sem isso, pode aparecer warning do tipo "You might have forgotten to wrap an update in act(...)"
-expect.extend(matchers);
+  expect.extend(matchers);
 
 // Essa função roda automaticamente depois de **cada** teste
 // Serve pra limpar tudo e evitar que um teste interfira no outro
@@ -35,6 +34,4 @@ afterEach(async () => {
   // Garante que os testes sejam independentes e não tenham "lixo" de execuções anteriores
   vi.resetAllMocks();
 
-  // Limpa a tabela da base de dados caso tenha ficado lixo
-  await clearDrizzleTodoTable();
 });
