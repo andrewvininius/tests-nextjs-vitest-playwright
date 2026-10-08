@@ -10,14 +10,20 @@ test("descreve esse teste", () => {
   // Arrange -> Criar as coisa que eu preciso
 
   const expectedTodo = {
-    id: "any-id",
+    id: expect.any(String), // qualquer string
     description: 'meu novo todo',
-    createdat: new Date().toISOString(),
+    createdat: expect.any(String), // qualquer string
   };
 
   //Act
   const newTodo = makeNewtodo('meu novo todo');
 
   // Assert
+  // toBe -> compara valores primitivos (string, number, boolean)
+  // toEqual -> compara objetos (arrays, objetos literais)
+  // toStrictEqual -> compara objetos, mas também compara tipos de dados (ex: string !== String)
   expect(newTodo.description).toBe(expectedTodo.description);
+
+  // Checando o objeto inteiro
+  expect(newTodo).toBe(expectedTodo);
 });
