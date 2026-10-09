@@ -14,8 +14,8 @@ describe("sanitizeStr (unit)",() =>{
     });
 
     test("garante a string é normalizada com NFC",() => {
-        const original = "e\u0301"
-        const expected = 'é'
+        const original = "e\u0301";
+        const expected = 'é';
         expect(expected).toBe(sanitizeStr(original));
     });
 });
