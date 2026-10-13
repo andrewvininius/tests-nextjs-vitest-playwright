@@ -9,11 +9,11 @@ describe("sanitizeStr (unit)",() =>{
         // @ts-expect-error testadando a funçao com tipagem incorreta
         expect(sanitizeStr(123)).toBe('');
     });
-    test('garante o trim da string enviada', () => {
+    test('Garante o trim da string enviada', () => {
         expect(sanitizeStr('   a  ')).toBe('a');
     });
 
-    test("garante a string é normalizada com NFC",() => {
+    test("Garante a string é normalizada com NFC",() => {
         const original = "e\u0301";
         const expected = 'é';
         expect(expected).toBe(sanitizeStr(original));
