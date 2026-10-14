@@ -14,9 +14,9 @@ type ValidTodo = {
     data: Todo;
 };
 
-type makeValidatedTod = ValidTodo |  InvalidTodo
+type makeValidatedTodo = ValidTodo |  InvalidTodo
 
-export function makeValidatedTod(description: string): makeValidatedTod{
+export function makeValidatedTodo(description: string): makeValidatedTodo{
     const cleanDescription = sanitizeStr(description);
     const validatedDescription = validateTodoDescription(cleanDescription)
 
