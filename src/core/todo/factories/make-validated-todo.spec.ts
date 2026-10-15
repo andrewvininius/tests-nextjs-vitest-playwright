@@ -1,30 +1,45 @@
-import * as sanitizeStrMod from '@/Utils/sanitize-str'
+import * as sanitizeStrMod from "@/Utils/sanitize-str";
 import { makeValidatedTodo } from "./make-validated-todo";
 
-describe('makeValidatedTodo (unit)', () =>{
-    test('deve chamar a função sanitizeStr com o valor correto', () => {
-        // Mockar(mock) => Subistituir alguma coisa temporariamente
-        //Arrange
-        const description = 'abcd';
-        const sanitizeStrSpy = vi.spyOn()
-        // vi.unmock;
-        // vi.spyOn;
-        // vi.stubGlobal;
-        // vi.stubEnv
-        // vi.mocked
+describe("makeValidatedTodo (unit)", () => {
+  test("deve chamar a função sanitizeStr com o valor correto", () => {
+    // Mockar(mock) => Subistituir alguma coisa temporariamente
 
-        // Act
-        makeValidatedTodo(description)
+    //Arrange
+    const description = "abcd";
+    const sanitizeStrSpy = vi
+    .spyOn(sanitizeStrMod, "sanitizeStr")
+    .mockReturnValue(description);
+    // .mockImplementation((s: string) => {
+    //     console.log('Eu sou FAKE', s)
+    //     return 'e vou retornar o'
+    // });
 
-        //Assert
-        expect(asdf).t;
-    });
+    // vi.unmock;
+    // vi.spyOn;
+    // vi.stubGlobal;
+    // vi.stubEnv
+    // vi.mocked
 
-    test('deve chamar a validateTodoDescription com o retorne de sanitizeStr', () => {});
+    // Act
+    makeValidatedTodo(description);
 
-    test('deve chamar makeNewTodo se validateTodoDescription retornou sucesso', () => {});
+    //Assert
 
-    test('deve chamar retonar validateTodoDescription.error se a validaçao falhou', () => {});
+    // test qu estao passando ('abcd') pq ('abcde') flha pq nao e o se pede
+    // expect(sanitizeStrSpy).toHaveBeenCalledExactlyOnceWith('abcd');
+    expect(sanitizeStrSpy).toHaveBeenCalledExactlyOnceWith(description);
+    expect(sanitizeStrSpy).toHaveBeenCalledTimes(1);
+    expect(sanitizeStrSpy).toHaveBeenCalledWith(description);
+
+    
 
 
+  });
+
+  // test('deve chamar a validateTodoDescription com o retorne de sanitizeStr', () => {});
+
+  // test('deve chamar makeNewTodo se validateTodoDescription retornou sucesso', () => {});
+
+  // test('deve chamar retonar validateTodoDescription.error se a validaçao falhou', () => {});
 });
