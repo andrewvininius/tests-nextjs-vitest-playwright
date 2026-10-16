@@ -8,8 +8,8 @@ describe("makeValidatedTodo (unit)", () => {
     //Arrange
     const description = "abcd";
     const sanitizeStrSpy = vi
-    .spyOn(sanitizeStrMod, "sanitizeStr")
-    .mockReturnValue(description);
+      .spyOn(sanitizeStrMod, "sanitizeStr")
+      .mockReturnValue(description);
     // .mockImplementation((s: string) => {
     //     console.log('Eu sou FAKE', s)
     //     return 'e vou retornar o'
@@ -31,10 +31,6 @@ describe("makeValidatedTodo (unit)", () => {
     expect(sanitizeStrSpy).toHaveBeenCalledExactlyOnceWith(description);
     expect(sanitizeStrSpy).toHaveBeenCalledTimes(1);
     expect(sanitizeStrSpy).toHaveBeenCalledWith(description);
-
-    
-
-
   });
 
   // test('deve chamar a validateTodoDescription com o retorne de sanitizeStr', () => {});
@@ -42,4 +38,28 @@ describe("makeValidatedTodo (unit)", () => {
   // test('deve chamar makeNewTodo se validateTodoDescription retornou sucesso', () => {});
 
   // test('deve chamar retonar validateTodoDescription.error se a validaçao falhou', () => {});
+
+  // const cumprimentar = () => {
+  //   return "Olá";
+  // };
+
+  // test ('verifica o retorno de texto', () =>{
+  //   expect(cumprimentar()).toBe('Olá');
+  // });
+
+
+  // test("verifica o retorno de texto", () => {
+  //   const cumprimentar = () => {
+  //     return "Olá";
+  //   };
+
+  //   expect(cumprimentar()).toBe("Olá");
+  // });
+
+  // test('verfica o nome retorna texto limpo', () =>{
+  //   const formato = () => {
+  //     return " maria ".trim()
+  //   }
+  //   expect(formato()).toBe("maria")
+  // });
 });
