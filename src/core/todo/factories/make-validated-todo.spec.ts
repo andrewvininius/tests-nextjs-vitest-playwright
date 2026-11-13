@@ -47,7 +47,6 @@ describe("makeValidatedTodo (unit)", () => {
   //   expect(cumprimentar()).toBe('Olá');
   // });
 
-
   // test("verifica o retorno de texto", () => {
   //   const cumprimentar = () => {
   //     return "Olá";
@@ -63,3 +62,15 @@ describe("makeValidatedTodo (unit)", () => {
   //   expect(formato()).toBe("maria")
   // });
 });
+
+const makeMocks = (description = 'abcd') => {
+  const describe = "abcd";
+  const sanitizeStrSpy = vi
+    .spyOn(sanitizeStrMod, 'sanitizeStr')
+    .mockReturnValue(description);
+
+    return{
+      description,
+      sanitizeStrSpy,
+    };
+};
